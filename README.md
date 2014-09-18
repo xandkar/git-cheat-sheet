@@ -29,7 +29,15 @@ $ git gc --aggressive --prune=now
 
 ### Remove history of previously-removed (not in current tree) files
 ```sh
-$ git log --pretty=format: --name-status | awk '$0 != "" {print $2}' | sort -u > /tmp/tree.old
+$ git log --pretty=format: --name-status \
+    | awk '$0 != "" {print $2}' \
+    | sort -u > /tmp/tree.old
 $ git ls-tree -r --name-only HEAD > /tmp/tree.new
-$ git filter-branch --prune-empty --index-filter 'grep -Fvxf /tmp/tree.new /tmp/tree.old | xargs git rm --cached -r --ignore-unmatch' HEAD
+$ git filter-branch \
+    --prune-empty \
+    --index-filter '
+        grep -Fvxf /tmp/tree.new /tmp/tree.old \
+        | xargs git rm --cached -r --ignore-unmatch
+    ' \
+    HEAD
 ```
