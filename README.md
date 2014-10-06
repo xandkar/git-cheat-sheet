@@ -9,7 +9,7 @@ Splitting a repo
 
 ##### Remove history of all but select files in cloned repo
 ```sh
-$ cp -Rp old new
+$ git clone old new
 $ cd new
 $ git clean -dfx
 $ git gc --aggressive --prune=now
