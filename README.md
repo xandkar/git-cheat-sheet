@@ -7,7 +7,7 @@ How to do stuff with git
 Splitting a repo
 ----------------
 
-### Remove history of all but select files in cloned repo
+##### Remove history of all but select files in cloned repo
 ```sh
 $ cp -Rp old new
 $ cd new
@@ -27,7 +27,7 @@ $ git filter-branch \
 $ git gc --aggressive --prune=now
 ```
 
-### Remove history of previously-removed (not in current tree) files
+##### Remove history of previously-removed (not in current tree) files
 ```sh
 $ git log --pretty=format: --name-status \
     | awk '$0 != "" {print $2}' \
