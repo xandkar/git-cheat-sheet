@@ -41,3 +41,14 @@ $ git filter-branch \
     ' \
     HEAD
 ```
+
+
+Inserting a new root commit
+---------------------------
+```sh
+git checkout --orphan $TEMP_BRANCH
+git rm -rf .
+git commit --allow-empty -m $INIT_COMMIT_MSG
+git rebase --onto $TEMP_BRANCH --root $MAIN_BRANCH
+git branch -d $TEMP_BRANCH
+```
