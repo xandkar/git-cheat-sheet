@@ -52,3 +52,14 @@ git commit --allow-empty -m $INIT_COMMIT_MSG
 git rebase --onto $TEMP_BRANCH --root $MAIN_BRANCH
 git branch -d $TEMP_BRANCH
 ```
+
+
+Deleting all tags, locally and remotely
+---------------------------------------
+```sh
+for tag in `git tag`;
+do
+    git tag -d $tag
+    git push origin :refs/tags/$tag
+done
+```
