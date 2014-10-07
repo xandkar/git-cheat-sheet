@@ -60,6 +60,6 @@ Deleting all tags, locally and remotely
 for tag in `git tag`;
 do
     git tag -d $tag
-    git push origin :refs/tags/$tag
+    git push $REMOTE_NAME :refs/tags/$tag
 done
 ```
