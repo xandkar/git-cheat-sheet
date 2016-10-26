@@ -63,3 +63,11 @@ do
     git push $REMOTE_NAME :refs/tags/$tag
 done
 ```
+
+
+Get an older version of a file
+------------------------------
+
+```sh
+git cat-file -p $COMMIT_DIGEST:$FILE_PATH
+```
