@@ -89,3 +89,18 @@ From [docs](https://git-scm.com/docs/git-rebase#_splitting_commits):
 - Commit the now-current index with whatever commit message is appropriate now.
 - Repeat the last two steps until your working tree is clean.
 - Continue the rebase with `git rebase --continue`.
+
+
+Merge 2 repos
+-------------
+
+```sh
+$ ls -1
+repo_A
+repo_B
+$ cd repo_B
+$ git remote add repo_A ../repo_A
+$ git fetch repo_A --tags
+$ git merge --allow-unrelated-histories repo_A/$BRANCH
+$ git remote remove repo_A
+```
