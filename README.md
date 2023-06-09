@@ -56,6 +56,7 @@ $ git log --pretty=format: --name-status \
     | sort -u > /tmp/tree.old
 $ git ls-tree -r --name-only HEAD > /tmp/tree.new
 $ git filter-branch \
+    --force \
     --prune-empty \
     --index-filter '
         grep -Fvxf /tmp/tree.new /tmp/tree.old \
